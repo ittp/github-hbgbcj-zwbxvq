@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Button from '../components/Button';
 import ClickCount from '../components/ClickCount';
 import styles from '../styles/home.module.css';
-import { setData } from '../components/ClickCount';
+
 function throwError() {
   console.log(
     // The function body() is not defined
@@ -13,35 +13,9 @@ function throwError() {
   );
 }
 
-function onSuccess(message: string) {
-  console.log('success', message);
-  let items = [{ key: 1 }, { key: 2 }];
-  let dataItems = items.map((item, id) => {
-    console.log(id, item);
-    return item;
-  });
-}
 
-const DateTime = (dt: any) => {
-  // let d = new Date();
-
-  return dt.getMinutes() + ':' + dt.getMilliseconds();
-};
 type VNumber = Number;
 export default function Home() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const r = setInterval(() => {
-      //  increment();
-      setData();
-    }, 100000);
-
-    return () => {
-      clearInterval(r);
-    };
-  }, [setData]);
-
   return (
     <main className={styles.main}>
       <h1>Fast Refresh Demo</h1>
@@ -56,7 +30,9 @@ export default function Home() {
           Auto incrementing value. The counter won't reset after edits or if
           there are errors.
         </p>
-        <p>Current value: {count}</p>
+        <p>
+          Current value: 
+        </p>
       </div>
       <hr className={styles.hr} />
       <div>

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import Button from './Button';
 
-export function ClickCount() {
+export default function ClickCount() {
   const [count, setCount] = useState(0);
   const increment = useCallback(() => {
     setCount((v) => v + 1);
@@ -19,18 +19,6 @@ export function ClickCount() {
 //   return <Button onClick={increment}>Clicks: {count}</Button>;
 // }
 
-export function Data() {
-  const [data, setCData] = useState(0);
-  const data4 = useCallback(() => {
-    setCount((v) => v + 1);
-  }, [data]);
-
-  // let fd = new Date();
-  // let date = fd.getHours() + ':' + fd.getMinutes() + ':' + fd.getMilliseconds();
-  return 'data';
-
-  return <Button onClick={increment}>Clicks: {count}</Button>;
-}
 // const increment = useCallback(
 //   () => {
 //     setCount()
@@ -45,3 +33,19 @@ export function Data() {
 //   },
 //   [setCount]
 // );
+
+let Time = () => {
+  let d = new Date(),
+    time = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+
+  return { d, time };
+};
+
+function updateTime() {
+  // const [time, setTime] = useState(0);
+  let timer = Time();
+  
+  
+
+  setTimeout(timer.time, 1000);
+}
